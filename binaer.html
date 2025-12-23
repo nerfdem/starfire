@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- Unterseite: Inhalte zur binären Darstellung -->
+
+<html lang="de">
+
+<head>
+    <!-- Zeichensatz (Umlaute, Sonderzeichen) -->
+    <meta charset="UTF-8">
+
+    <!-- Responsives Layout für mobile Geräte -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Seitentitel im Browser-Tab -->
+    <title>Binär</title>
+
+    <!-- Performance: DNS/TLS-Handshakes zu Google Fonts früh starten -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Roboto-Schrift laden (400 normal, 600/700 fett) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Zentrales Stylesheet der Seite -->
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Standard-Header mit Farbverlauf-Hintergrund -->
+    <header>
+        <div class="container header-inner">
+            <!-- Seitentitel -->
+            <h1>Binär</h1>
+
+            <!-- Hauptnavigation: Seitenwechsel -->
+            <nav class="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="codierung.html">Codierung</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hauptinhalt der Seite -->
+    <main>
+        <!-- Carousel: vollständiges Laufband für Fakten -->
+        <section aria-label="Fakten-Laufband">
+            <div class="carousel" data-carousel>
+
+                <!-- Navigation: Zurück -->
+                <button class="carousel-btn prev" type="button" aria-label="Zurück" data-carousel-prev>
+                    <!-- Zugriffssichere Pfeile (Text + visuell) -->
+                    <span aria-hidden="true">‹</span>
+                </button>
+
+                <!-- Sichtfenster des Carousels; der Track wird horizontal verschoben -->
+                <div class="carousel-viewport" role="region" aria-live="polite">
+                    <ul class="carousel-track">
+
+                        <li class="carousel-slide is-active" aria-hidden="false">
+                            <article class="carousel-card">
+                                <img src="leibnitzpfp.jpg" alt="Porträt von Leibniz" class="card-image">
+                                <div class="card-content">
+                                    <h3>Der Paradigmenwechsel: Leibniz</h3>
+                                    <p>Schon im 17. Jh. erkannte Gottfried Wilhelm Leibniz, dass man jede Zahl nur mit 0
+                                        und 1 darstellen kann.</p>
+                                    <ul>
+                                        <li>Inspiriert von chinesischen Diagrammen (I Ging).</li>
+                                        <li>Symbolik: 1 für Gott (Ursprung), 0 für das Nichts.</li>
+                                        <li>Die mathematische Geburt des digitalen Zeitalters.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide" aria-hidden="true">
+                            <article class="carousel-card">
+                                <img src="BitByte.jpg" alt="Grafik von Bits und Bytes" class="card-image">
+                                <div class="card-content">
+                                    <h3>Bit & Byte: Die Maßeinheiten</h3>
+                                    <p>Ein Bit ist die kleinste Einheit (An/Aus). Ein Byte fasst 8 Bits zusammen.</p>
+                                    <ul>
+                                        <li>Bit: Nur Zustand 1 oder 0 möglich.</li>
+                                        <li>Byte: 8 Bits ergeben 256 Kombinationen (2^8).</li>
+                                        <li>Reicht für einen Buchstaben oder eine kleine Zahl.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide" aria-hidden="true">
+                            <article class="carousel-card">
+                                <img src="Vennandornot.svg" alt="Boolesche Logik Diagramm" class="card-image">
+                                <div class="card-content">
+                                    <h3>Die Logik: George Boole</h3>
+                                    <p>Mitte des 19. Jh. entwickelte Boole eine Algebra, die nur "Wahr" (1) oder
+                                        "Falsch" (0) kennt.</p>
+                                    <ul>
+                                        <li>Nutzung von Operatoren: UND, ODER, NICHT.</li>
+                                        <li>Das "Gehirn" des Computers rechnet nicht, es verknüpft logisch.</li>
+                                        <li>Grundlage für KI und Suchmaschinen.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide" aria-hidden="true">
+                            <article class="carousel-card">
+                                <img src="Transistors.jpg" alt="Transistoren" class="card-image">
+                                <div class="card-content">
+                                    <h3>Der Transistor: Der Schalter</h3>
+                                    <p>1947 erfunden, fungiert er als winziger elektrischer Wasserhahn für den Strom.
+                                    </p>
+                                    <ul>
+                                        <li>Ersetzte riesige, fehleranfällige Röhren.</li>
+                                        <li>Zustand: Strom fließt (1) oder sperrt (0).</li>
+                                        <li>Heute sind Milliarden davon auf einem einzigen Chip.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide" aria-hidden="true">
+                            <article class="carousel-card">
+                                <img src="wave1.jpg" alt="Wellenform Digitalisierung" class="card-image">
+                                <div class="card-content">
+                                    <h3>Analog zu Digital</h3>
+                                    <p>Unsere Welt ist stufenlos (analog). Computer müssen diese in Stufen zerteilen
+                                        (digitalisieren).</p>
+                                    <ul>
+                                        <li>Sampling: Messung tausendfach pro Sekunde.</li>
+                                        <li>Je öfter gemessen wird, desto besser die Qualität.</li>
+                                        <li>Macht aus einer Welle eine Kette aus Nullen und Einsen.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Navigation: Weiter -->
+                <button class="carousel-btn next" type="button" aria-label="Weiter" data-carousel-next>
+                    <span aria-hidden="true">›</span>
+                </button>
+
+                <a href="codierung.html" id="continueBtn" class="continue-btn-overlay">
+                    Weiter zur Codierung ›
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Fußzeile: Urheber- und Jahresangabe -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Luca, Nihad, Frederik.</p>
+
+            <details class="sources-details">
+                <summary>Quellen anzeigen</summary>
+                <ul class="sources-list">
+                    <li><a href="https://de.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz" target="_blank">Wikipedia:
+                            G.W. Leibniz</a></li>
+                    <li><a href="https://www.elektronik-kompendium.de/sites/dig/0209241.htm" target="_blank">Elektronik
+                            Kompendium: ASCII</a></li>
+                    <li><a href="https://unicode.org/standard/WhatIsUnicode.html" target="_blank">Unicode.org</a></li>
+                    <li>42?</li>
+                    <li>Bilder: Wikipedia CC / Getty Images / Eigene Erstellung</li>
+                </ul>
+            </details>
+        </div>
+    </footer>
+
+    <!-- Carousel-Verhalten -->
+    <script src="carousel.js"></script>
+</body>
+
+</html>

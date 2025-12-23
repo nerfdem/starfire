@@ -1,0 +1,65 @@
+.carousel {
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    width: 100%;
+    height: 100%;
+    padding: clamp(1rem, 4vw, 2rem);
+    box-sizing: border-box;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    border-radius: 14px;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.carousel-track {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 500%;
+    align-items: stretch;
+    transition: transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.6rem, 2vw, 1.1rem);
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.carousel-card {
+    width: clamp(280px, 85vw, 420px);
+    max-height: 100%;
+    overflow-y: auto;
+    padding: clamp(1.05rem, 3vw, 2rem);
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 95, 158, 0.12);
+    transform: scale(0.98);
+    opacity: 0.9;
+    transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
+}
+
+.carousel-slide.is-active .carousel-card {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 12px 24px rgba(0, 95, 158, 0.18));
+}
+
+/* Die Button Styles sind jetzt in style.css wegen Kompatibilitätsproblemen */

@@ -1,0 +1,457 @@
+/* =========================================
+   1. GRUNDEINSTELLUNGEN & VARIABLEN
+   ========================================= */
+
+:root {
+    --blue-700: #005f9e;
+    /* Dunkles Blau: Akzent */
+    --blue-600: #007acc;
+    /* Primärfarbe: Überschriften/Links */
+    --blue-400: #66b2ff;
+    /* Hellere Akzente */
+    --bg: #ffffff;
+    --muted: #4b5563;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+
+    /* Hintergrundverlauf (fixiert) */
+    background: linear-gradient(135deg,
+            #e0f2fe 0%, #bae6fd 15%, #7dd3fc 30%, #93c5fd 45%,
+            #dbeafe 60%, #e0f2fe 75%, #bfdbfe 90%, #cbd5e1 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2.-undVierzig LAYOUT & CONTAINER
+   ========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    /* Damit der Footer nicht überlappt (Footer ist ca. 80px hoch) */
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+    /* Platz für den fixen Footer */
+}
+
+/* Inhalts-Sektionen */
+main section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--blue-600);
+    margin: 0.25rem 0;
+}
+
+a {
+    color: var(--blue-600);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION (LIQUID GLASS)
+   ========================================= */
+
+header {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--blue-700);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation Reset */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+/* Die Buttons im Header */
+.main-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--blue-700);
+    padding: 10px 25px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover & Active Status */
+.main-nav a:hover,
+.main-nav a.is-active {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--blue-600);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 95, 158, 0.2);
+    border-color: #fff;
+    text-decoration: none;
+}
+
+/* =========================================
+   4. NAVIGATIONSPFEILE & OVERLAYS (WICHTIG!)
+   ========================================= */
+
+/* Die Pfeile (Prev/Next) */
+.carousel-btn {
+    /* Erzwingt Sichtbarkeit und verhindert Zerquetschen */
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid var(--blue-600);
+    color: var(--blue-700);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+
+    /* Reset von Standard-Button-Styles */
+    appearance: none;
+    outline: none;
+    margin: 0 15px;
+    /* Abstand zur Karte */
+}
+
+.carousel-btn:hover {
+    background: var(--blue-600);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Reihenfolge: Prev links, Next rechts */
+.carousel-btn.prev {
+    order: -1;
+}
+
+.carousel-btn.next {
+    order: 1;
+}
+
+/* Der "Weiter zur Codierung" Button (Overlay) */
+.continue-btn-overlay {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+
+    padding: 12px 25px;
+    background: white;
+    border: 2px solid var(--blue-600);
+    color: var(--blue-700);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+
+    /* Unsichtbar bis JS aktiv wird */
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.continue-btn-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    right: 5%;
+}
+
+.continue-btn-overlay:hover {
+    background: var(--blue-600);
+    color: white;
+}
+
+/* =========================================
+   5. KARTEN-INHALT (CAROUSEL STYLING)
+   ========================================= */
+
+.carousel-card .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 12px 12px 0 0;
+    /* Oben abrunden */
+}
+
+.carousel-card .card-content {
+    padding: 0 20px 20px 20px;
+    text-align: left;
+}
+
+.carousel-card h3 {
+    margin-top: 5px;
+    font-size: 1.25rem;
+    color: #222;
+}
+
+.carousel-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #444;
+}
+
+.carousel-card ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.carousel-card ul li {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* =========================================
+   6. LANDING PAGE & ANIMATIONEN
+   ========================================= */
+
+/* Startseiten-Layout */
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 70vh;
+    padding: 40px 20px;
+}
+
+.hero-section {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: var(--blue-700);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+.start-tour-btn {
+    display: inline-block;
+    padding: 15px 50px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 95, 158, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-tour-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 95, 158, 0.5);
+}
+
+/* Vorhang Animation */
+.curtain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-400));
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: curtainUp 0.8s ease-in-out 1.5s forwards;
+}
+
+@keyframes curtainUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* =========================================
+   7. FOOTER & QUELLEN - 42 ;)
+   ========================================= */
+
+footer {
+    background: rgba(51, 51, 51, 0.95);
+    /* Dunkelgrau fast opak */
+    backdrop-filter: blur(8px);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+
+    /* Fixiert unten */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 900;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Quellen Details */
+.sources-details summary {
+    cursor: pointer;
+    color: #bbb;
+    font-weight: 600;
+    text-decoration: underline;
+    list-style: none;
+}
+
+.sources-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.sources-details summary:hover {
+    color: #fff;
+}
+
+.sources-list {
+    margin-top: 10px;
+    padding: 15px;
+    list-style: none;
+    background-color: #444;
+    border-radius: 8px;
+    text-align: left;
+    display: inline-block;
+}
+
+.sources-list li {
+    margin-bottom: 5px;
+}
+
+.sources-list a {
+    color: #add8e6;
+    text-decoration: none;
+}
+
+.sources-list a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   8. MEDIA QUERIES (HANDY/TABLET)
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    /* Header stapeln */
+    .header-inner {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    /* Navigation umbrechen */
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main-nav a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Pfeile kleiner machen */
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        margin: 0 5px;
+    }
+
+    /* Texte anpassen */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Footer Platzhalter verkleinern */
+    main {
+        min-height: calc(100vh - 160px);
+    }
+}
