@@ -141,9 +141,7 @@
             toggleDisabled(btnPrev, index === 0);
             toggleDisabled(btnNext, index === slides.length - 1);
 
-            /* --- IN DER UPDATE() FUNKTION --- */
-
-            // Suche den Button
+            
             const continueBtn = document.getElementById('continueBtn');
 
             if (continueBtn) {
